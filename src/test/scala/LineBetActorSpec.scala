@@ -22,7 +22,7 @@ class LineBetActorSpec(_system: ActorSystem)
     lineActor.underlyingActor.asInstanceOf[LineBetActor].establishedPoint shouldBe 0
   }
 
-  "Line bet actors" should "Pay the bet on a 7 when no point is set" in {
+  it should "Pay the bet on a 7 when no point is set" in {
     (1 to 6).foreach { num =>
       val lineActor = TestActorRef(Props[LineBetActor])
       //confirm no point set
@@ -38,7 +38,7 @@ class LineBetActorSpec(_system: ActorSystem)
     }
   }
 
-  "Line bet actors" should "Pay the bet on a 11 when no point is set" in {
+  it should "Pay the bet on a 11 when no point is set" in {
     (5 to 6).foreach { num =>
       val lineActor = TestActorRef(Props[LineBetActor])
       //confirm no point set
@@ -54,42 +54,42 @@ class LineBetActorSpec(_system: ActorSystem)
     }
   }
 
-  "Line bet actors" should "be able to set the point to 4" in {
+  it should "be able to set the point to 4" in {
     (1 to 2).foreach { num =>
       val lineActor = TestActorRef(Props[LineBetActor])
       lineActor ! Roll(num, 4-num)
       lineActor.underlyingActor.asInstanceOf[LineBetActor].establishedPoint shouldBe 4
     }
   }
-  "Line bet actors" should "be able to set the point to 5" in {
+  it should "be able to set the point to 5" in {
     (1 to 4).foreach { num =>
       val lineActor = TestActorRef(Props[LineBetActor])
       lineActor ! Roll(num, 5-num)
       lineActor.underlyingActor.asInstanceOf[LineBetActor].establishedPoint shouldBe 5
     }
   }
-  "Line bet actors" should "be able to set the point to 6" in {
+  it should "be able to set the point to 6" in {
     (1 to 5).foreach { num =>
       val lineActor = TestActorRef(Props[LineBetActor])
       lineActor ! Roll(num, 6-num)
       lineActor.underlyingActor.asInstanceOf[LineBetActor].establishedPoint shouldBe 6
     }
   }
-  "Line bet actors" should "be able to set the point to 8" in {
+  it should "be able to set the point to 8" in {
     (2 to 6).foreach { num =>
       val lineActor = TestActorRef(Props[LineBetActor])
       lineActor ! Roll(num, 8-num)
       lineActor.underlyingActor.asInstanceOf[LineBetActor].establishedPoint shouldBe 8
     }
   }
-  "Line bet actors" should "be able to set the point to 9" in {
+  it should "be able to set the point to 9" in {
     (3 to 6).foreach { num =>
       val lineActor = TestActorRef(Props[LineBetActor])
       lineActor ! Roll(num, 9-num)
       lineActor.underlyingActor.asInstanceOf[LineBetActor].establishedPoint shouldBe 9
     }
   }
-  "Line bet actors" should "be able to set the point to 10" in {
+  it should "be able to set the point to 10" in {
     (4 to 6).foreach { num =>
       val lineActor = TestActorRef(Props[LineBetActor])
       lineActor ! Roll(num, 10-num)
